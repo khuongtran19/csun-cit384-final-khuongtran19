@@ -1,0 +1,24 @@
+<VirtualHost *:80>
+	ServerName final.cit384
+	ServerAlias final.cit384
+	DocumentRoot /var/www/final.cit384/html
+	Alias /user1/ /home/user1/var/www/user1/html
+	Alias /user2/ /home/user2/var/www/user2/html
+	<Directory /var/www/final.cit384/html>
+		Options -Indexes +FollowSymLinks
+		AllowOverride All
+	</Directory>
+	ErrorLog ${APACHE_LOG_DIR}/final.cit384-error.log
+	CustomLog ${APACHE_LOG_DIR}/final.cit384-access.log combined  
+</VirtualHost>
+<VirtualHost*:443>
+	ServerName final.cit384
+	SSLEngine on
+	SSLCertificateFile "./certifile.pem"
+	SSLCertificateKeyFile "./key.pem"
+	SSLProxyEngine off
+	<Directory "var/www/final.cit384/html">
+		RewriteEngine on
+		RewriteRule "^final.cit384$"
+	</Directory>
+</VirtualHost>

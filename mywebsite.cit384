@@ -1,0 +1,18 @@
+<VirtualHost *:80>
+	ServerName mywebsite.cit384
+	Redirect permanent / http://final.cit384/
+</VirtualHost>
+<VirtualHost *:80>
+	ServerName final.cit384
+</VirtualHost>
+<VirtualHost*:443>
+	ServerName mywebsite.cit384
+	SSLEngine on
+	SSLCertificateFile "./certifile.pem"
+	SSLCertificateKeyFile "./key.pem"
+	SSLProxyEngine off
+	<Directory "var/www/mywebsite.cit384/html/">
+		RewriteEngine on
+		RewriteRule "^mywebsite.cit384$"
+	</Directory>
+</VirtualHost>

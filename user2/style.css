@@ -1,0 +1,14 @@
+body{
+    background-color: black;
+    height: 100%;
+}
+.container{
+    margin: auto;
+    padding: 70px 0;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+.bio-image{
+    border-radius: 50%;
+}
